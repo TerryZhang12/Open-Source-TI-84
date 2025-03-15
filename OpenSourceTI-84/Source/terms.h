@@ -5,11 +5,10 @@
 struct Polynomial : public Expression
 {
 	float coefficient;
-	float exponent;
+	unsigned int exponent;
 
-	Polynomial(float coefficient, float exponent) : coefficient(coefficient),
-													exponent(exponent)
-	{ }
+	Polynomial(unsigned int exponent);
 
 	float evaluate(float value) const override;
 };
+
