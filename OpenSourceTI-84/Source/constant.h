@@ -3,11 +3,11 @@
 #include "terms.h"
 #include <memory>
 
-struct ConstPolynomial : public Polynomial
+struct ConstNum : public Expression
 {
 	float value;
 
-	ConstPolynomial(float value);
+	ConstNum(float value);
 
 	float evaluate(float value) const override;
 };

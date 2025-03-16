@@ -1,11 +1,11 @@
 #include "constant.h"
 
-ConstPolynomial::ConstPolynomial(float value) : Polynomial::Polynomial(1)
+ConstNum::ConstNum(float value) : value(value)
 {
 	this->value = value;
 }
 
-float ConstPolynomial::evaluate(float value) const
+float ConstNum::evaluate(float value) const
 {
 	return this->value;
 }

@@ -8,6 +8,7 @@ AddExpressions::AddExpressions(std::unique_ptr<Expression> e1, std::unique_ptr<E
 
 float AddExpressions::evaluate(float value) const
 {
+	if (value == 1.f) std::cout << "Add" << std::endl;
 	return expression1->evaluate(value) + expression2->evaluate(value);
 }
 
@@ -18,6 +19,7 @@ SubtractExpressions::SubtractExpressions(std::unique_ptr<Expression> e1, std::un
 
 float SubtractExpressions::evaluate(float value) const
 {
+	if (value == 1.f) std::cout << "Subtract" << std::endl;
 	return expression1->evaluate(value) - expression2->evaluate(value);
 }
 
@@ -29,6 +31,7 @@ MultiplyExpressions::MultiplyExpressions(std::unique_ptr<Expression> e1, std::un
 
 float MultiplyExpressions::evaluate(float value) const
 {
+	if (value == 1.f) std::cout << "Multiply" << std::endl;
 	return expression1->evaluate(value) * expression2->evaluate(value);
 }
 
@@ -40,6 +43,7 @@ DivideExpressions::DivideExpressions(std::unique_ptr<Expression> e1, std::unique
 
 float DivideExpressions::evaluate(float value) const
 {
+	if (value == 1.f) std::cout << "Divide" << std::endl;
 	if (expression2->evaluate(value) == 0) return 9999999.f;
 	return expression1->evaluate(value) / expression2->evaluate(value);
 }
@@ -51,6 +55,7 @@ ChainExpressions::ChainExpressions(std::unique_ptr<Expression> outside, std::uni
 
 float ChainExpressions::evaluate(float value) const
 {
+	if (value == 1.f) std::cout << "Chain" << std::endl;
 	float inValue = inside->evaluate(value);
 	return outside->evaluate(inValue);
 }

@@ -1,10 +1,10 @@
 #pragma once
 
 #include "expression.h"
+#include <iostream>
 
 struct Polynomial : public Expression
 {
-	float coefficient;
 	unsigned int exponent;
 
 	Polynomial(unsigned int exponent);
@@ -14,8 +14,7 @@ struct Polynomial : public Expression
 
 struct Sin : public Expression
 {
-	float coefficient;
-	
+
 	Sin();
 
 	float evaluate(float value) const override;

@@ -17,8 +17,8 @@ int main()
 	ExpressionPtr poly1 = std::make_unique<Polynomial>(3);
 	ExpressionPtr poly2 = std::make_unique<Polynomial>(2);
 	ExpressionPtr poly3 = std::make_unique<Polynomial>(1);
-	ExpressionPtr const1 = std::make_unique<ConstPolynomial>(1);
-	ExpressionPtr const5 = std::make_unique<ConstPolynomial>(5);
+	ExpressionPtr const1 = std::make_unique<ConstNum>(1);
+	ExpressionPtr const5 = std::make_unique<ConstNum>(5);
 	ExpressionPtr sin = std::make_unique<Sin>();
 
 	poly3->coefficient = 2;
@@ -27,10 +27,6 @@ int main()
 	ExpressionPtr polysin = chainExpressions(sin, poly5);
 
 	ExpressionPtr testPoly = divideExpressions(const1, polysin);
-
-
-	window.clear();
-	window.display();
 	Graph graph(testPoly);
 	graph.xStart = -10;
 	graph.xEnd = 10;
@@ -39,15 +35,22 @@ int main()
 
 	graph.loadExpression();
 	graph.transformToGraph();
-	graph.graph(window);
 
-	window.display();
-	std::cout << "graphed" << std::endl;
+	while (window.isOpen())
+	{
+		while (const std::optional event = window.pollEvent())
+		{
+			if (event->is<sf::Event::Closed>())
+			{
+				window.close();
+			}
+		}
 
-	int eval;
-	std::cin >> eval;
+		window.clear();
 
-	std::cout << graph.expression->evaluate(eval);
+		graph.graph(window);
+		window.display();
+	}
 
 	return 0;
 }
