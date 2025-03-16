@@ -11,14 +11,21 @@ struct Graph
 {
 	std::unique_ptr<Expression> expression;
 	std::unordered_map<float, float> points;
+	sf::VertexArray verticies;
+	sf::Color color;
 
 	float xStart;
 	float xEnd;
 	float yStart;
 	float yEnd;
 
+	float xScale() const;
+	float yScale() const;
+
 	Graph(std::unique_ptr<Expression>& expression);
 
 	void loadExpression();
+	void transformToGraph();
+
 	void graph(sf::RenderWindow& window);
 };

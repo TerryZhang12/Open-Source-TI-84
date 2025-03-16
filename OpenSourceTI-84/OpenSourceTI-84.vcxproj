@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\combine.cpp" />
+    <ClCompile Include="Source\constant.cpp" />
     <ClCompile Include="Source\expression.cpp" />
     <ClCompile Include="Source\graph.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -27,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\combine.h" />
+    <ClInclude Include="Source\constant.h" />
     <ClInclude Include="Source\expression.h" />
     <ClInclude Include="Source\global.h" />
     <ClInclude Include="Source\graph.h" />

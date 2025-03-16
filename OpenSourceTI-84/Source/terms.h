@@ -12,3 +12,12 @@ struct Polynomial : public Expression
 	float evaluate(float value) const override;
 };
 
+struct Sin : public Expression
+{
+	float coefficient;
+	
+	Sin();
+
+	float evaluate(float value) const override;
+};
+
